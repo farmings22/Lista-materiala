@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Material Management</title>
+    <style>
+    body {
+                        font-family: Arial, sans-serif;
+                        margin: 20px;
+                        background-color: #f4f4f4;
+                }
+
+                h1 {
+                        text-align: center;
+                        color: #000000;
+                }
+
+                .container {
+                        max-width: 800px;
+                        margin: 0 auto;
+                }
+
+                .material-container {
+                        margin-bottom: 30px;
+                }
+
+                label {
+                        display: block;
+                        margin-bottom: 5px;
+                        color: #000
+                }
+
+                input[type="text"],
+                input[type="number"] {
+                        width: 100%;
+                        padding: 8px;
+                        border-radius: 90px;
+                        border: 3px solid #1CAB15;
+                }
+
+                select {
+                    width: 100%;
+                    padding: 8px;
+                    border-radius: 90px;
+                    border: 3px solid #1CAB15;
+                    background-color:#fff;
+                    color:#000
+            }
+
+            button {
+                    padding: 8px 106px;
+                    background-color:#1CAB15;
+                    color:#fff;
+                    border-radius:.80rem;
+                    border: 3px solid;
+                    cursor:pointer
+            }
+
+            ul {list-style-type:none; padding-left:.5rem}
+
+            li {margin-bottom:.5rem}
+
+            li a {display:block;padding:.75rem;text-decoration:none;color:#000}
+
+            li a:hover {background-color:#f1f1f1}
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>MATERIAL</h1>
+
+        <div id="materials-list">
+            <h2>LISTA MATERIALA:</h2>
+            <ul id="list"></ul>
+        </div>
+
+        <div id="add-material">
+            <h2>DODAJ MATERIAL:</h2>
+
+            <div class="material-container">
+                <label for="material-name">NAZIV MATERIALA:</label>
+                <input type="text" id="material-name">
+            </div>
+
+            <div class="material-container">
+                <label for="material-price">CENA (EUR) (KOMAD/METER):</label>
+                <input type="number" step="0.01" id="material-price">
+            </div>
+
+            <div class="material-container">
+                <label for="material-website">SPLETNA POVEZAVA:</label>
+                <input type="text" id="material-website">
+            </div>
+
+            <!-- Category selection -->
+            <div class="material-container">
+                <label for="category-select">KATEGORIJA:</label>
+                <select id="category-select">
+                <option value="">Izberi kategorijo</option>
+    <option value="KABEL TRDOŽILNI">KABEL TRDOŽILNI</option>
+    <option value="KABEL MEHKOŽILNI">KABEl MEHKOŽILNI</option>
+    <option value="KABEL UTP + COX">KABEL UTP + COX</option>
+    <option value="KABEL POSAMEZNA ŽILA">KABEL POSAMEZNA ŽILA</option>
+    <option value="CEV RBT">CEV RBT</option>
+    <option value="CEV SIVA">CEV SIVA</option>
+    <option value="CEV GIBLJIVA">CEV GIBLJIVA</option>
+    <option value="PN-CEVI">PN-CEVI</option>
+    <option value="PN-CEVI ŠTUKAVE">PN-CEVI ŠTUKAVE</option>
+    <option value="PN-CEVI ELEMENTI">PN-CEVI KOTNI ELEMENTI</option>
+    <option value="SKOBE">SKOBE</option>
+    <option value="OBJEMKE ZA KABLE">OBJEMKE ZA KABLE</option>
+    <option value="NIK-KANALI">NIK-KANALI</option>
+    <option value="OMARICE NADOMETNE PROZORNE">OMARICE NADOMETNE PROZORNE</option>
+    <option value="OMARICE NADOMETNE BELE">OMARICE NADOMETNE BELE</option>
+    <option value="OMARICE NADOMETNE PROZORNE RAVNA VRATA">OMARICE NADOMETNE PROZORNE RAVNA VRATA</option>
+    <option value="OMARICE NADOMETNE BELE RAVNA VRATA">OMARICE NADOMETNE BELE RAVNA VRATA</option>
+    <option value="OMARICE NADOMETNE BREZ VRAT">OMARICE NADOMETNE BREZ VRAT</option>
+    <option value="OMARICE NADOMETNE PROZORNE IP65">OMARICE NADOMETNE PROZORNE IP65</option>
+    <option value="OMARICE KOVINSKE NADOMETNE">OMARICE KOVINSKE NADOMETNE</option>
+    <option value="OMARICE PODOMETNE PROZORNE">OMARICE PODOMETNE PROZORNE</option>
+    <option value="OMARICE PODOMETNE BELE">OMARICE PODOMETNE BELE</option>
+    <option value="OMARICE PODOMETNE PROZORNE RAVNA VRATA">OMARICE PODOMETNE PROZORNE RAVNA VRATA</option>
+    <option value="OMARICE PODOMETNE BELE RAVNA VRATA">OMARICE PODOMETNE BELE RAVNA VRATA</option>
+    <option value="VAROVALKE">VAROVALKE</option>
+    <option value="VAROVALKE PANCERKE">VAROVALKE PANCERKE</option>
+    <option value="VAROVALKE FID">VAROVALKE FID</option>
+    <option value="VAROVALKE STIKALA">VAROVALKE STIKALA</option>
+    <option value="VAROVALKE PRENAPETOSTNA">VAROVALKE PRENAPETOSTNA</option>
+    <option value="GIPS">GIPS</option>
+    <option value="SPONKE">SPONKE</option>
+    <option value="VODOTESNA DOZA ZA SPONKE">VODOTESNA DOZA ZA SPONKE</option>
+    <option value="WAGO SPONKE">WAGO SPONKE</option>
+    <option value="SPONKE DVIŽNI VOD">SPONKE DVIŽNI VOD</option>
+    <option value="SPONKE DVIŽNI VOD ODPIRALNA">SPONKE DVIŽNI VOD ODPIRALNA</option>
+    <option value="INDUSTRIJSKA SPONKA ZA DIN LETEV">INDUSTRIJSKA SPONKA ZA DIN LETEV</option>
+    <option value="IZOLIRNI TRAK">IZOLIRNI TRAK</option>
+    <option value="VEZICE">VEZICE</option>
+    <option value="VTIKAČI">VTIKAČI</option>
+    <option value="DIN LETEV VTIČNICA">DIN LETEV VTIČNICA</option>
+    <option value="DOZE NADOMETNE">DOZE NADOMETNE</option>
+    <option value="DOZE PODOMETNE">DOZE PODOMETNE</option>
+    <option value="3F VTIKAČI">3F VTIKAČI</option>
+    <option value="3F VTIČNICA">3F VTIČNICA</option>
+    <option value="TEM MODUL STIKALA">TEM MODUL STIKALA</option>
+    <option value="TEM MODUL VTIČ">TEM MODUL VTIČ</option>
+    <option value="TEM MODUL KOMUNIKACIJSKA UTP + COX">TEM MODUL KOMUNIKACIJSKA UTP + COX</option>
+    <option value="TEM MODUL BLENDE">TEM MODUL BLENDE</option>
+    <option value="TEM MODUL POKROVČKI">TEM MODUL POKROVČKI</option>
+    <option value="TEM MODUL NOSILCI">TEM MODUL NOSILCI</option>
+    <option value="TEM MODUL OKRASNI OKVIRJI">TEM MODUL OKRASNI OKVIRJI</option>
+    <option value="TEM MODUL LUČKA">TEM MODUL LUČKA</option>
+    <option value="TEM EKONOMIK STIKALA">TEM EKONOMIK STIKALA</option>
+    <option value="TEM EKONOMIK VTIČNICE">TEM EKONOMIK VTIČNICE</option>
+    <option value="TEM EKONOMIK PRIKLJUČNICA">TEM EKONOMIK PRIKLJUČNICA</option>
+    <option value="TEM EKONOMIK POLNILO">TEM EKONOMIK POLNILO</option>
+    <option value="TEM FONTANA STIKALA SIVA">TEM FONTANA STIKALA SIVA</option>
+    <option value="TEM FONTANA VTIČNICE SIVA">TEM FONTANA VTIČNICE SIVA</option>
+    <option value="TEM FONTANA STIKALA BELA ">TEM FONTANA STIKALA BELA</option>
+    <option value="TEM FONTANA VTIČNICE BELA">TEM FONTANA VTIČNICE BELA</option>
+    <option value="TEM CUBO OHIŠJE BELO">TEM CUBO OHIŠJE BELO</option>
+    <option value="TEM CUBO OHIŠJE SIVO">TEM CUBO OHIŠJE SIVO</option>
+    <option value="LUXOMAT">LUXOMAT</option>
+    <option value="SENZORJI PODOMETNI">SENZORJI PODOMETNI</option>
+    <option value="SENZORJI NADOMETNI">SENZORJI NADOMETNI</option>
+    <option value="GU10 OKOVI">GU10 OKOVI</option>
+    <option value="SIJALKE LED GU10">SIJALKE LED GU10</option>
+    <option value="SIJALKE LED E27">SIJALKE LED E27</option>
+    <option value="SIJALKE LED MR16">SIJALKE LED MR16</option>
+    <option value="SIJALKE LED T5 CEV">SIJALKE LED T5 CEV</option>
+    <option value="SIJALKE LED T8 CEV">SIJALKE LED T8 CEV</option>
+    <option value="LED INDUSTRIJSKE SVETILKE">LED INDUSTRIJSKE SVETILKE</option>
+    <option value="LED PROFESIONALNE INDUSTRIJSKE SVETILKE">LED PROFESIONALNE INDUSTRIJSKE SVETILKE</option>
+    <option value="LED INDUSTRIJSKI REFLEKTORJI">LED INDUSTRIJSKI REFLEKTORJI</option>
+    <option value="ZUNANJE TALNA VGRADNA SVETILA">ZUNANJE TALNA VGRADNA SVETILA</option>
+    <option value="ZUNANJE STENSKA VGRADNA SVETILA">ZUNANJE STENSKA VGRADNA SVETILA</option>
+    <option value="ZUNANJE STENSKA NADOMETNA SVETILA">ZUNANJE STENSKA NADOMETNA SVETILA</option>
+    <option value="ZUNANJE STOJEČA SVETILA">ZUNANJE STOJEČA SVETILA</option>
+    <option value="ZUNANJE STENSKO / STROPNE PLATFORNJERE">ZUNANJE STENSKO / STROPNE PLATFORNJERE</option>
+    <option value="ZUNANJE SVETILA Z VGRAJENIM SENZOREJM GIBANJA">ZUNANJE SVETILA Z VGRAJENIM SENZOREJM GIBANJA</option>
+    <option value="LED REFLEKTORJI">LED REFLEKTORJI</option>
+    <option value="LED ZASILNE SVETILKE">LED ZASILNE SVETILKE</option>
+    <option value="LED CESTNA RAZSVETLJAVA">LED CESTNA RAZSVETLJAVA</option>
+    <option value="NOTRANJI VGRADNI LED PANELI OKROGLI">NOTRANJI VGRADNI LED PANELI OKROGLI</option>
+    <option value="NOTRANJI VGRADNI LED PANELI ŠTIRIKOTNI">NOTRANJI VGRADNI LED PANELI ŠTIRIKOTNI</option>
+    <option value="NOTRANJI NADOMETNI LED PANELI OKROGLI">NOTRANJI NADOMETNI LED PANELI OKROGLI</option>
+    <option value="NOTRANJI NADOMETNI LED PANELI ŠTIRIKOTNI">NOTRANJI NADOMETNI LED PANELI ŠTIRIKOTNI</option>
+    <option value="NOTRANJI NADOMETNI MONTAŽNI OKVIRJI">NOTRANJI NADOMETNI MONTAŽNI OKVIRJI</option>
+    <option value="NOTRANJA NADOMETNA SPOT SVETILA TULČASTA">NOTRANJA NADOMETNA SPOT SVETILA TULČASTA</option>
+    <option value="NOTRANJA VGRADNA SPOT SVETILA ">NOTRANJA VGRADNA SPOT SVETILA </option>
+    <option value="NOTRANJA VGRADNA VISEČA SVETILA ">NOTRANJA VGRADNA VISEČA SVETILA </option>
+    <option value="NOTRANJA NADOMETNA STROPNA SVETILA OKROGLA">NOTRANJA NADOMETNA STROPNA SVETILA OKROGLA</option>
+    <option value="NOTRANJA NADOMETNA STROPNA SVETILA ŠTIRIKOTNA">NOTRANJA NADOMETNA STROPNA SVETILA ŠTIRIKOTNA</option>
+    <option value="NOTRANJA STENSKA NADOMETNA SVETILA">NOTRANJA STENSKA NADOMETNA SVETILA</option>
+    <option value="NOTRANJA LINIJSKA SVETILA">NOTRANJA LINJSKA SVETILA</option>
+    <option value="NOTRANJA STOPNIŠČNA SVETILA">NOTRANJA STOPNIŠČNA SVETILA</option>
+    <option value="NOTRANJA SVETILA Z VGRAJENIM SENZOREJM GIBANJA">NOTRANJA SVETILA Z VGRAJENIM SENZOREJM GIBANJA</option>
+    <option value="NOTRANJE TOKOVNE TRAČNICE">NOTRNJE TOKOVNE TRAČNICE</option>
+    <option value="KONEKTORJI TOKOVNIH TRAČNIC">KONEKTORJI TOKOVNIH TRAČNIC</option>
+    <option value="NOTRANJI TRAČNI LED REFLEKTORJI">NOTRNJI TRAČNI LED REFLEKTORJI</option>
+    <option value="LED PROFILI">LED PROFILI</option>
+    <option value="LED TRAKOVI">LED TRAKOVI</option>
+    <option value="VGRADNA LED PROFIL STIKALA">VGRADNA LED PROFIL STIKALA</option>
+    <option value="LED NAPAJALNIKI">LED NAPJALNIKI</option>
+    <option value="KABEL ČEVLJI">KABEL ČEVLJI</option>
+    <option value="VEZNI TULEC Cu">VEZNI TULEC Cu</option>
+    <option value="VEZNI TULEC Z IZOLACIJO">VEZNI TULEC Z IZOLACIJO</option>
+    <option value="TULČKI">TULČKI</option>
+    <option value="TULČKI DVOJNI">TULČKI DVOJNI</option>
+    <option value="VIJAKI">VIJAKI</option>
+    <option value="VIJAKI GIDORA">VIJAKI GIDORA</option>
+    <option value="VIJAKI GIDORA MATICA">VIJAKI GIDORA MATICA</option>
+    <option value="SAMOREZNI VIJAKI">SAMOREZNI VIJAKI</option>
+    <option value="KNAUF VIJAKI">KNAUF VIJAKI</option>
+    <option value="VLOŽKI">VLOŽKI</option>
+    <option value="KNAUF VLOŽKI">KNAUF VLOŽKI</option>
+    <option value="NABIJALNI VLOŽKI">NABIKAČNI VLOŽKI</option>
+    <option value="SIDRE">SIDRE</option>
+    <option value="SPIRALA ZA VEZANJE KABLOV">SPIRALA ZA VEZANJE KABLOV</option>
+    <option value="NAVOJNA PALICA">NAVOJNA PALICA</option>
+    <option value="PODALJŠEK NAVOJNA PALICA">PODALJŠEK NAVOJNA PALICA</option>
+    <option value="MATICA">MATICA</option>
+    <option value="MATICA VAROVALNA">MATICA VAROVALNA</option>
+    <option value="PODLOŽKA">PODLOŽKA</option>
+    <option value="POVEZOVALNA LETEV">POVEZOVALNA LETEV</option>
+    <option value="DIN LETEV">DIN LETEV</option>
+    <option value="ROBNI TRAK">ROBNI TRAK</option>
+    <option value="VIJAK + MATICA ZA POLICE">VIJAK + MATICA ZA POLICE</option>
+    <option value="POLICE">POLICE</option>
+    <option value="POLICE POKROVI">POLICE POKROVI</option>
+    <option value="POLICE REDUCIRI">POLICE REDUCIRI</option>
+    <option value="STRELOVOD ŽICA">STRELOVOD ŽICA</option>
+    <option value="STRELOVOD NOSILCI ŽICE">STRELOVOD NOSILCI ŽICE</option>
+    <option value="STRELOVOD SPONKE">STRELOVOD SPONKE</option>
+    <option value="IR PANELI">IR PANELI</option></option>
+    <option value="TERMOSTAT">TERMOSTAT</option>
+
+
+                    <!-- (existing options) -->
+                </select>
+            </div>
+
+            <!-- Add button for new items -->
+            <button onclick="addMaterial()">Dodaj</button>
+        </div>
+
+        <!-- Edit and Delete buttons -->
+        <div id="edit-delete-buttons" style="display: none;">
+            <button onclick="editSelectedMaterial()">Uredi izbrano</button>
+            <button onclick="deleteSelectedMaterial()">Izbriši izbrano</button>
+        </div>
+
+        <!-- Show category items button -->
+        <button onclick="showCategoryItems()">Pokaži kategorijo</button>
+
+        <!-- Show all materials button -->
+        <button onclick="showAllMaterials()">Pokaži vse vneseno</button>
+    </div>
+
+    <script>
+        var materials = [];
+        var selectedMaterialIndex = -1;
+
+        // Load saved materials from localStorage
+        if (localStorage.getItem("materials")) {
+            materials = JSON.parse(localStorage.getItem("materials"));
+            updateMaterialsList();
+        }
+
+        function addMaterial() {
+            var materialName = document.getElementById("material-name").value;
+            var materialPrice = document.getElementById("material-price").value;
+            var materialWebsite = document.getElementById("material-website").value;
+            var categorySelect = document.getElementById("category-select");
+            var selectedCategory = categorySelect.options[categorySelect.selectedIndex].value;
+
+            if (materialName.trim() === "" || materialPrice.trim() === "") {
+                alert("Prosim vnesite vse podatke.");
+                return;
+            }
+
+            if (selectedCategory === "") {
+                alert("Prosim izberite kategorijo.");
+                return;
+            }
+
+            materials.push({
+                name: materialName,
+                price: parseFloat(materialPrice).toFixed(2),
+                website: materialWebsite,
+                category: selectedCategory
+            });
+
+            updateMaterialsList();
+
+            // Clear input fields
+            document.getElementById("material-name").value = "";
+            document.getElementById("material-price").value = "";
+            document.getElementById("material-website").value = "";
+            document.getElementById("category-select").selectedIndex = 0;
+
+            // Save materials to localStorage
+            localStorage.setItem("materials", JSON.stringify(materials));
+        }
+
+        function updateMaterialsList() {
+            var listContainer = document.getElementById("list");
+
+            // Clear existing list
+            while (listContainer.firstChild) {
+                listContainer.removeChild(listContainer.firstChild);
+            }
+
+            // Add materials to the list
+            for (var i = 0; i < materials.length; i++) {
+                var listItem = document.createElement("li");
+                var websiteLink = materials[i].website ? "<br>Website: <a href='" + materials[i].website + "' target='_blank'>" + materials[i].website + "</a>" : "";
+                listItem.innerHTML =
+                    "<a href='#' onclick='selectMaterial(" + i + ")'>MateriaL:  " + materials[i].name + "_____Price: €" + materials[i].price + "_____ Category: " + materials[i].category + websiteLink + "</a>";
+
+                listContainer.appendChild(listItem);
+            }
+        }
+
+        function selectMaterial(index) {
+            selectedMaterialIndex = index;
+
+            // Show edit and delete buttons
+            document.getElementById("edit-delete-buttons").style.display = "block";
+        }
+
+        function editSelectedMaterial() {
+            if (selectedMaterialIndex !== -1) {
+                var materialName = prompt(
+                    "Vnesite nov naziv:",
+                    materials[selectedMaterialIndex].name
+                );
+                var materialPrice = prompt(
+                    "Vnesite novo ceno:",
+                    materials[selectedMaterialIndex].price
+                );
+                var materialWebsite = prompt(
+                    "Vnesite novo spletno povezavo:",
+                    materials[selectedMaterialIndex].website
+                );
+
+                if (materialName !== null && materialPrice !== null && materialWebsite !== null) {
+                    if (materialName.trim() === "" || materialPrice.trim() === "") {
+                        alert("Prosim vnesite vse podatke.");
+                        return;
+                    }
+
+                    materials[selectedMaterialIndex].name = materialName;
+                    materials[selectedMaterialIndex].price = parseFloat(materialPrice).toFixed(2);
+                    materials[selectedMaterialIndex].website = materialWebsite;
+
+                    updateMaterialsList();
+
+                    // Save materials to localStorage
+                    localStorage.setItem("materials", JSON.stringify(materials));
+                }
+            }
+        }
+
+        function deleteSelectedMaterial() {
+            if (selectedMaterialIndex !== -1) {
+                if (confirm("Ste oprepričani da želite izbrisati?")) {
+                    materials.splice(selectedMaterialIndex, 1);
+                    selectedMaterialIndex = -1;
+
+                    updateMaterialsList();
+
+                    // Save materials to localStorage
+                    localStorage.setItem("materials", JSON.stringify(materials));
+
+                    // Hide edit and delete buttons
+                    document.getElementById("edit-delete-buttons").style.display = "none";
+                }
+            }
+        }
+
+        function showCategoryItems() {
+            var categorySelect = document.getElementById("category-select");
+            var selectedCategory = categorySelect.options[categorySelect.selectedIndex].value;
+
+            if (selectedCategory === "") {
+                alert("Prosim izberite kategorijo.");
+                return;
+            }
+
+            var filteredMaterials = materials.filter(function (material) {
+                return material.category === selectedCategory;
+            });
+
+            // Clear existing list
+            var listContainer = document.getElementById("list");
+            while (listContainer.firstChild) {
+                listContainer.removeChild(listContainer.firstChild);
+            }
+
+            // Add filtered materials to the list
+            for (var i = 0; i < filteredMaterials.length; i++) {
+                var listItem = document.createElement("li");
+                var websiteLink = filteredMaterials[i].website ? "<br>Website: <a href='" + filteredMaterials[i].website + "' target='_blank'>" + filteredMaterials[i].website + "</a>" : "";
+                listItem.innerHTML =
+                    "<a href='#' onclick='selectMaterial(" + i + ")'>Material: " + filteredMaterials[i].name + "_____Price: €" + filteredMaterials[i].price + "_____ Category: " + filteredMaterials[i].category + websiteLink + "</a>";
+
+                listContainer.appendChild(listItem);
+            }
+        }
+
+        function showAllMaterials() {
+            // Update the list with all materials
+            updateMaterialsList();
+
+            // Clear selected material index and hide edit and delete buttons
+            selectedMaterialIndex = -1;
+            document.getElementById("edit-delete-buttons").style.display = "none";
+        }
+    </script>
+</body>
+
+</html>
